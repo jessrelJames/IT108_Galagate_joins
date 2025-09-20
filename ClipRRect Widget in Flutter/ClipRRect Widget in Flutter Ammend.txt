@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp()); // Entry point of the application
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'ClipOval', // Title of the application
+      theme: ThemeData(
+        primarySwatch: Colors.blue, // Theme color of the application
+      ),
+      home: MyHomePAGE(), // Home page of the application
+      debugShowCheckedModeBanner: false, // Disable debug banner
+    );
+  }
+}
+
+class MyHomePAGE extends StatefulWidget {
+  @override
+  _MyHomePAGEState createState() => _MyHomePAGEState(); // Create state for the home page
+}
+
+class _MyHomePAGEState extends State<MyHomePAGE> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'One Piece', // modified title 
+          style: TextStyle(
+            color: Colors.white, // Text color of the app bar title
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(255, 45, 0, 248), // modified background color
+      ),
+      body: Center(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10), // Rounded corners with radius 10
+          child: Image.network('https://m.media-amazon.com/images/M/MV5BMTNjNGU4NTUtYmVjMy00YjRiLTkxMWUtNzZkMDNiYjZhNmViXkEyXkFqcGc@._V1_.jpg'), // modified image
+        ),
+      ),
+    );
+  }
+}
